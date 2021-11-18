@@ -23,7 +23,7 @@ export const initialState = {
     {
       id: 100,
       name: 'Lettuce',
-      category: 'Vegitable',
+      category: 'Vegetable',
       deliveryMethod: 'Ground',
     },
     {
