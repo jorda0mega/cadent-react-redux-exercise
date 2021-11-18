@@ -1,6 +1,6 @@
 # Cadent Front-End React + Redux Apptitude Exercise
 
-## Summaryyyy
+## Summary
 
 This exercise is designed to test your understanding of the major concepts of real world JavaScript and the patterns of React and Redux. The project is fully configured for you so you won't have to focus on configuring a build or working out a development instance. Everything has been based upon Facebook's React biolerplate, create-react-app.
 
