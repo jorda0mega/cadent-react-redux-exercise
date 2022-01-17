@@ -1,8 +1,16 @@
 import React from 'react';
 
-export const ListTable = () => (
+export const ListTable = ({ groceryList }) => (
   <div className="listTable">
-    ListTable
+    <table>
+      <tbody>
+      {groceryList.map(item => {
+        return <tr key={item.id}>
+          <td>{item.name}</td>
+        </tr>
+      })}
+      </tbody>
+    </table>
   </div>
 );
 

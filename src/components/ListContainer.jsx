@@ -20,7 +20,7 @@ export const ListContainer = (props) => {
         </div>
         <div className="types">
           <ListSelection />
-          <ListTable />
+          <ListTable groceryList={props.groceryList} />
         </div>
       </section>
     );
