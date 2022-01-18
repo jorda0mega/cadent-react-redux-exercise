@@ -52,7 +52,9 @@ export default function reducer(state = initialState, action) {
 
     case REMOVE_ITEM:
       // Write a custom reducer that will remove an item from the list array
-      return state; 
+      console.log(payload);
+      return { ...state, list: state.list.filter(item => item.id !== payload)};
+      // return state; 
 
     case SELECT_ITEM:
       // Write a custom reducer that will select an item
@@ -70,5 +72,15 @@ export default function reducer(state = initialState, action) {
 // Action Creators
 export const addItem = item => ({
   type: ADD_ITEM,
+  payload: item,
+});
+
+export const removeItem = item => ({
+  type: REMOVE_ITEM,
+  payload: item,
+});
+
+export const selectItem = item => ({
+  type: SELECT_ITEM,
   payload: item,
 });

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { addItem } from '../ducks/groceries';
+import { addItem, removeItem } from '../ducks/groceries';
 
 import ListInputs from './ListInputs';
 import ListSelection from './ListSelection';
@@ -20,7 +20,7 @@ export const ListContainer = (props) => {
         </div>
         <div className="types">
           <ListSelection />
-          <ListTable groceryList={props.groceryList} />
+          <ListTable groceryList={props.groceryList} removeItem={props.removeItem} />
         </div>
       </section>
     );
@@ -30,6 +30,7 @@ ListContainer.propTypes = {
   // Props
   // Actions
   addItem: PropTypes.func.isRequired,
+  removeItem: PropTypes.func.isRequired,
   // Store
   groceryList: PropTypes.array.isRequired,
   // Other
@@ -44,7 +45,8 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = {
-  addItem
+  addItem,
+  removeItem
 };
 
 const ListContainerRedux = connect(mapStateToProps, mapDispatchToProps)(ListContainer);
