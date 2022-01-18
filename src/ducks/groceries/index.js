@@ -52,17 +52,31 @@ export default function reducer(state = initialState, action) {
 
     case REMOVE_ITEM:
       // Write a custom reducer that will remove an item from the list array
-      console.log(payload);
-      return { ...state, list: state.list.filter(item => item.id !== payload)};
+      if(payload === state.selectedItem.id){
+        return { ...state, list: state.list.filter(item => item.id !== payload), isItemSelected: false, selectedItem: {
+          id: 0,
+          name: '',
+          category: '',
+          deliveryMethod: '' 
+        }};
+      }
+      return { ...state, list: state.list.filter(item => item.id !== payload) };
       // return state; 
 
     case SELECT_ITEM:
       // Write a custom reducer that will select an item
-      return state;
+      return { ...state, isItemSelected: true, selectedItem: payload}
+      // return state;
 
     case DESELECT_ITEM:
       // Write a customer reducer that will deselect an item
-      return state;
+      return { ...state, isItemSelected: false, selectedItem: {
+        id: 0,
+        name: '',
+        category: '',
+        deliveryMethod: '' 
+      }};
+      // return state;
 
     default:
       return state;
@@ -82,5 +96,10 @@ export const removeItem = item => ({
 
 export const selectItem = item => ({
   type: SELECT_ITEM,
+  payload: item,
+});
+
+export const deselectItem = item => ({
+  type: DESELECT_ITEM,
   payload: item,
 });

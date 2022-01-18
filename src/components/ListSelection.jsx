@@ -1,8 +1,11 @@
 import React from 'react';
 
-const ListSelection = () => (
+const ListSelection = ({ selectedItem }) => (
   <div className="listSelection">
-    ListSelection
+    <p><b>Item Selected</b></p>
+    <ul>
+      <li>{selectedItem.name}</li>
+    </ul>
   </div>
 );
 
